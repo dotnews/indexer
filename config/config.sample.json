@@ -1,0 +1,14 @@
+{
+  "Env": "sample",
+  "Elastic": {
+    "URL": "http://localhost:9200",
+    "Username": "elastic",
+    "Password": "changeme"
+  },
+  "NewsAPI": {
+    "Key": ""
+  },
+  "Article": {
+    "Index": "article"
+  }
+}
