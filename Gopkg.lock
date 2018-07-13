@@ -31,8 +31,8 @@
     "config",
     "uritemplates"
   ]
-  revision = "d06c9338b70fa11ac48eb82d8a84090a8d7dfd8d"
-  version = "v6.1.24"
+  revision = "229adca7643e572e471ea3e8e018d651b728713d"
+  version = "v6.1.25"
 
 [[projects]]
   name = "github.com/pkg/errors"
@@ -55,6 +55,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8870f3554334f6915d041252af326dcf3a9a56791fca239fbe758cacf9205c5e"
+  inputs-digest = "9a9c3c73c5a29328118e8076c43cc57c8f4c24efd972b1075e0fea22928fb49d"
   solver-name = "gps-cdcl"
   solver-version = 1

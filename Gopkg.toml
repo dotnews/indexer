@@ -6,11 +6,11 @@
 
 [[constraint]]
   name = "github.com/stretchr/testify"
-  version = "1.2.1"
+  version = "1.2.2"
 
 [[constraint]]
   name = "github.com/olivere/elastic"
-  version = "6.1.23"
+  version = "6.1.25"
 
 [[constraint]]
   name = "github.com/golang/glog"
