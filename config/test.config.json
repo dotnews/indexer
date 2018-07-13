@@ -1,12 +1,12 @@
 {
-  "Env": "sample",
+  "Env": "test",
   "Elastic": {
     "URL": "http://localhost:9200",
     "Username": "elastic",
     "Password": "changeme"
   },
   "Article": {
-    "Index": "article",
+    "Index": "article_test",
     "Type": "article",
     "Mapping": "article.json"
   }

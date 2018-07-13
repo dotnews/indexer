@@ -1,0 +1,13 @@
+{
+  "Env": "dev",
+  "Elastic": {
+    "URL": "http://localhost:9200",
+    "Username": "elastic",
+    "Password": "changeme"
+  },
+  "Article": {
+    "Index": "article_v1",
+    "Type": "article",
+    "Mapping": "article.json"
+  }
+}

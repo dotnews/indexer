@@ -1,3 +1,3 @@
 .DS_Store
-/config/*.config.json
+/config/prod.config.json
 /vendor
