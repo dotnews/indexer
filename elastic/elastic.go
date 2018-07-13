@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 	"strings"
 
+	"github.com/dotnews/indexer/config"
 	"github.com/golang/glog"
-	"github.com/inthenews/indexer/config"
 	"github.com/olivere/elastic"
 )
 
@@ -95,10 +95,11 @@ func (el *Elastic) Delete(index string) error {
 }
 
 // Index a document
-func (el *Elastic) Index(name, typ string, body interface{}) error {
+func (el *Elastic) Index(name, typ, id string, body interface{}) error {
 	_, err := el.Client.Index().
 		Index(name).
 		Type(typ).
+		Id(id).
 		BodyJson(body).
 		Do(el.Context)
 

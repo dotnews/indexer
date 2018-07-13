@@ -5,8 +5,8 @@ import (
 
 	"github.com/golang/glog"
 
-	"github.com/inthenews/indexer/config"
-	"github.com/inthenews/indexer/worker"
+	"github.com/dotnews/indexer/config"
+	"github.com/dotnews/indexer/worker"
 )
 
 const (

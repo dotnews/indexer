@@ -25,12 +25,10 @@ type Config struct {
 		Password string
 	}
 
-	NewsAPI struct {
-		Key string
-	}
-
 	Article struct {
-		Index string
+		Index   string
+		Type    string
+		Mapping string
 	}
 }
 

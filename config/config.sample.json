@@ -5,10 +5,9 @@
     "Username": "elastic",
     "Password": "changeme"
   },
-  "NewsAPI": {
-    "Key": ""
-  },
   "Article": {
-    "Index": "article"
+    "Index": "article",
+    "Type": "article",
+    "Mapping": "article.json"
   }
 }

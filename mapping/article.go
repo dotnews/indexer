@@ -6,13 +6,13 @@ import (
 
 // Article serialization structure for indexing
 type Article struct {
-	SourceID    string    `json:"sourceId"`
-	SourceName  string    `json:"sourceName"`
-	Author      string    `json:"author"`
 	Title       string    `json:"title"`
+	Author      string    `json:"author"`
 	Description string    `json:"description"`
+	Body        string    `json:"body"`
 	URL         string    `json:"url"`
-	ImageURL    string    `json:"imageUrl"`
+	Source      string    `json:"source"`
+	Category    string    `json:"category"`
 	PublishedAt time.Time `json:"publishedAt"`
-	CreatedAt   time.Time `json:"createdAt"`
+	ImportedAt  time.Time `json:"importedAt"`
 }

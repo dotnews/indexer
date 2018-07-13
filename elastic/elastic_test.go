@@ -6,14 +6,13 @@ import (
 	"os"
 	"testing"
 
-	"github.com/inthenews/indexer/config"
-	"github.com/inthenews/indexer/elastic"
+	"github.com/dotnews/indexer/config"
+	"github.com/dotnews/indexer/elastic"
 	"github.com/stretchr/testify/assert"
 )
 
 var c = config.New("../")
 var el = elastic.New(c)
-var articleType = "article"
 
 func TestMain(m *testing.M) {
 	exists, err := el.Client.IndexExists(c.Article.Index).Do(el.Context)
@@ -81,7 +80,7 @@ func TestIndex(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, int64(0), sr.TotalHits())
 
-	err = el.Index(c.Article.Index, articleType, "{}")
+	err = el.Index(c.Article.Index, c.Article.Type, "id", "{}")
 	assert.Nil(t, err)
 
 	_, err = el.Client.Flush(c.Article.Index).Do(el.Context)
@@ -97,8 +96,20 @@ func TestIndex(t *testing.T) {
 	assert.Equal(t, int64(1), sr.TotalHits())
 }
 
+func TestGet(t *testing.T) {
+	err := el.Index(c.Article.Index, c.Article.Type, "id", "{\"foo\": \"bar\"}")
+	assert.Nil(t, err)
+
+	b, err := el.Get(c.Article.Index, c.Article.Type, "id")
+	var source map[string]interface{}
+	err = json.Unmarshal(b, &source)
+
+	assert.Nil(t, err)
+	assert.Equal(t, "bar", source["foo"])
+}
+
 func TestGetMapping(t *testing.T) {
-	s, err := el.GetMapping("article.json")
+	s, err := el.GetMapping(c.Article.Mapping)
 	assert.Nil(t, err)
 
 	var m map[string]interface{}

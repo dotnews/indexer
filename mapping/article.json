@@ -6,31 +6,31 @@
   "mappings": {
     "article": {
       "properties": {
-        "sourceId": {
-          "type": "keyword"
-        },
-        "sourceName": {
-          "type": "keyword"
-        },
-        "author": {
+        "title": {
           "type": "text"
         },
-        "title": {
+        "author": {
           "type": "text"
         },
         "description": {
           "type": "text"
         },
+        "body": {
+          "type": "text"
+        },
         "url": {
           "type": "keyword"
         },
-        "imageUrl": {
+        "source": {
+          "type": "keyword"
+        },
+        "category": {
           "type": "keyword"
         },
         "publishedAt": {
           "type": "date"
         },
-        "createdAt": {
+        "importedAt": {
           "type": "date"
         }
       }

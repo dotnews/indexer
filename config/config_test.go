@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/inthenews/indexer/config"
+	"github.com/dotnews/indexer/config"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -16,22 +16,24 @@ func TestConfig(t *testing.T) {
 	assert.Equal(t, "http://localhost:9200", c.Elastic.URL)
 	assert.Equal(t, "elastic", c.Elastic.Username)
 	assert.Equal(t, "changeme", c.Elastic.Password)
-	assert.NotEmpty(t, c.NewsAPI.Key)
 	assert.Equal(t, "article_test", c.Article.Index)
+	assert.Equal(t, "article", c.Article.Type)
+	assert.Equal(t, "article.json", c.Article.Mapping)
 }
 
 func TestOverride(t *testing.T) {
 	orig := os.Getenv("CONFIG")
-	os.Setenv("CONFIG", "config/config.sample.json")
+	os.Setenv("CONFIG", "config/dev.config.json")
 	c := config.New("../")
 
-	assert.Equal(t, "sample", c.Env)
+	assert.Equal(t, "dev", c.Env)
 	assert.Equal(t, "../", c.Root)
 	assert.Equal(t, "http://localhost:9200", c.Elastic.URL)
 	assert.Equal(t, "elastic", c.Elastic.Username)
 	assert.Equal(t, "changeme", c.Elastic.Password)
-	assert.Empty(t, c.NewsAPI.Key)
-	assert.Equal(t, "article", c.Article.Index)
+	assert.Equal(t, "article_v1", c.Article.Index)
+	assert.Equal(t, "article", c.Article.Type)
+	assert.Equal(t, "article.json", c.Article.Mapping)
 
 	os.Setenv("CONFIG", orig)
 }
