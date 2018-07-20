@@ -1,9 +1,12 @@
 default: test
 
-.PHONY: test index delete
+.PHONY: test compose index delete
 
 test:
 	@CONFIG=config/test.config.json GOCACHE=off go test ./...
+
+compose:
+	@docker-compose up
 
 index:
 	@go run main.go -logtostderr=true
